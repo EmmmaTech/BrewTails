@@ -21,7 +21,7 @@ int main(int argc, char **argv)
     PadState pad;
     padInitializeDefault(&pad);
 
-    std::cout << "New Homebrew Menu by EmreTech" << '\n' << "If you somehow got this, then delete it please. This is experimental and not ready." << '\n';
+    std::cout << "New Homebrew Menu by EmreTech" << '\n';
     
     loadFiles();
     for (size_t i{0}; i < files.size(); i++)
