@@ -2,3 +2,4 @@
 *.nacp
 *.nro
 build/*
+resources/shaders/*
