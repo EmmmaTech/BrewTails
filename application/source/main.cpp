@@ -1,70 +1,28 @@
 #include <switch.h>
 #include <iostream>
 #include <string>
+#include <borealis.hpp>
 
-#include <fileUtil.hpp>
-
-std::vector<std::string> files;
-
-void loadFiles()
-{
-    files = FS::readFilesFromDirectory("/switch");
-    FS::filterForExtension(files, "nro");
-}
+#include <listItem.hpp>
+#include <mainActivity.hpp>
 
 int main(int argc, char **argv)
 {
-    consoleInit(NULL);
+    brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
 
-    padConfigureInput(1, HidNpadStyleSet_NpadStandard);
-
-    PadState pad;
-    padInitializeDefault(&pad);
-
-    std::cout << "New Homebrew Menu by EmreTech" << '\n';
-    
-    loadFiles();
-    for (size_t i{0}; i < files.size(); i++)
+    if (!brls::Application::init())
     {
-        std::cout << i << ": " << files.at(i) << '\n';
+        brls::Logger::error("Failed to init");
+        return EXIT_FAILURE;
     }
+    brls::Application::createWindow("New-Homebrew-Launcher");
+    brls::Application::setGlobalQuit(true);
 
-    std::cout << "Press A to load an NRO, Press + to exit" << '\n';
+    brls::Application::registerXMLView("ListItem", ListItem::create);
 
-    while (appletMainLoop())
-    {
-        padUpdate(&pad);
+    brls::Application::pushActivity(new MainActivity());
 
-        u64 kDown = padGetButtonsDown(&pad);
-        if (kDown & HidNpadButton_Plus) break;
+    while (brls::Application::mainLoop());
 
-        if (kDown & HidNpadButton_A)
-        {
-            SwkbdConfig kbd;
-            char tmpoutstr[16] = {0};
-            Result rc = swkbdCreate(&kbd, 0);
-
-            if (R_SUCCEEDED(rc))
-            {
-                swkbdConfigSetType(&kbd, SwkbdType_NumPad);
-                swkbdConfigSetOkButtonText(&kbd, "Launch!");
-                swkbdConfigSetGuideText(&kbd, "Enter index of the app you want to launch");
-
-                rc = swkbdShow(&kbd, tmpoutstr, sizeof(tmpoutstr));
-                if (R_SUCCEEDED(rc))
-                {
-                    int index = std::stoi(std::string(tmpoutstr));
-                    std::string path = "/switch/" + files.at(index);
-                    envSetNextLoad(path.c_str(), path.c_str());
-                    
-                    break;
-                }
-            }
-        }
-
-        consoleUpdate(NULL);
-    }
-
-    consoleExit(NULL);
     return 0;
 }

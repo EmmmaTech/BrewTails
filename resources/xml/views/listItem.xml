@@ -1,0 +1,35 @@
+<brls:Box
+    width="50%"
+    height="25%"
+    axis="row"
+    justifyContent="center">
+
+    <brls:Image
+        id="thumbnail"
+        width="1"
+        height="1"
+        marginLeft="20px"
+        marginRight="30px"/>
+
+    <brls:Box
+        width="auto"
+        height="auto"
+        axis="column"
+        marginRight="20px">
+
+        <brls:Label
+            id="label"
+            width="auto"
+            height="auto"
+            horizontalAlign="center"
+            marginBottom="20px"/>
+
+        <brls:Label
+            id="value"
+            width="auto"
+            height="auto"
+            horizontalAlign="center"/>
+
+    </brls:Box>
+
+</brls:Box>

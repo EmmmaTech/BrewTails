@@ -1,0 +1,14 @@
+<brls:AppletFrame
+    title="New-Homebrew-Menu">
+
+    <brls:Box
+        width="auto"
+        height="auto">
+
+        <ListItem
+            label="Hello"
+            value="No"/>
+
+    </brls:Box>
+
+</brls:AppletFrame>
