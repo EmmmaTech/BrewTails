@@ -1,14 +1,29 @@
 <brls:AppletFrame
-    title="New-Homebrew-Menu">
+    title="BrewTails">
 
-    <brls:Box
+    <brls:ScrollingFrame
         width="auto"
         height="auto">
 
-        <ListItem
-            label="Hello"
-            value="No"/>
+        <brls:Box
+            width="auto"
+            height="auto"
+            axis="column">
 
-    </brls:Box>
+                <ListItem
+                    label="Hello"
+                    value="Hi"
+                    marginBottom="10px"/>
+
+                <ListItem
+                    label="Likes"
+                    value="Waffles"/>
+
+                <brls:Button
+                    text="Hello"/>
+
+        </brls:Box>
+
+    </brls:ScrollingFrame>
 
 </brls:AppletFrame>

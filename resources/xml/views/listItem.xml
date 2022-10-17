@@ -1,6 +1,6 @@
 <brls:Box
-    width="50%"
-    height="25%"
+    width="25%"
+    height="12.5%"
     axis="row"
     justifyContent="center">
 

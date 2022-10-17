@@ -50,7 +50,7 @@ OUT_SHADERS := shaders
 VERSION_NUM  := 0.1
 VERSION_NAME := Nightly
 
-APP_TITLE   := New-Homebrew-Menu
+APP_TITLE   := BrewTails
 APP_AUTHOR  := EmreTech
 APP_VERSION := ${VERSION_NUM} ${VERSION_NAME}
 #---------------------------------------------------------------------------------

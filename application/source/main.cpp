@@ -5,7 +5,7 @@
 
 #include <listItem.hpp>
 #include <mainActivity.hpp>
-
+ 
 int main(int argc, char **argv)
 {
     brls::Logger::setLogLevel(brls::LogLevel::DEBUG);
@@ -15,7 +15,7 @@ int main(int argc, char **argv)
         brls::Logger::error("Failed to init");
         return EXIT_FAILURE;
     }
-    brls::Application::createWindow("New-Homebrew-Launcher");
+    brls::Application::createWindow("BrewTails");
     brls::Application::setGlobalQuit(true);
 
     brls::Application::registerXMLView("ListItem", ListItem::create);
