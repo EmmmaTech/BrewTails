@@ -3,8 +3,8 @@
 #include <string>
 #include <borealis.hpp>
 
-#include <listItem.hpp>
-#include <mainActivity.hpp>
+#include "../include/ListItem.hpp"
+#include "../include/MainActivity.hpp"
  
 int main(int argc, char **argv)
 {
